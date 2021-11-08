@@ -47,7 +47,7 @@ router.get('/logout', async (req, res, next) => {
     if (!req.session.user) {
       return res.json({ message: 'excuse me? you were not logged in!' })
     }
-    req.session.destroy((err) => { // this does not wipe the cookie from browser
+    req.session.destroy((err) => { // this does not wipe the cookie from browser(client-side)
       if (err) {
         return res.json({ message: 'something went wrong logging you out' })
       }
