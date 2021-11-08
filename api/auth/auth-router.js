@@ -5,10 +5,10 @@ router.post('/register', async (req, res, next) => {
     res.json('register wired!')
 })
 router.post('/login', async (req, res, next) => {
-    res.json('register wired!')
+    res.json('login wired!')
 })
 router.get('/logout', async (req, res, next) => {
-    res.json('register wired!')
+    res.json('logout wired!')
 })
 
 
