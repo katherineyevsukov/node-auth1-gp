@@ -1,10 +1,15 @@
 const router = require('express').Router()
 
+const validatePayload = (req, res, next) => { next() }
 
-router.post('/register', async (req, res, next) => {
-    res.json('register wired!')
+router.post('/register', validatePayload, async (req, res, next) => {
+    try {
+
+    } catch(err){
+        next(err)
+    }
 })
-router.post('/login', async (req, res, next) => {
+router.post('/login', validatePayload, async (req, res, next) => {
     res.json('login wired!')
 })
 router.get('/logout', async (req, res, next) => {
