@@ -42,9 +42,18 @@ router.post('/login', validatePayload, async (req, res, next) => {
         next(err)
     } 
 })
+
 router.get('/logout', async (req, res, next) => {
-    res.json('logout wired!')
-})
+    if (!req.session.user) {
+      return res.json({ message: 'excuse me? you were not logged in!' })
+    }
+    req.session.destroy((err) => { // this does not wipe the cookie from browser
+      if (err) {
+        return res.json({ message: 'something went wrong logging you out' })
+      }
+      res.json({ message: 'goodbye!' })
+    }) // async, old style Node
+  })
 
 
 module.exports = router
